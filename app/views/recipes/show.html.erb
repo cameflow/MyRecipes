@@ -38,7 +38,20 @@
           <% end %>
         </div>
       </div>
+      <h3>Comments</h3>
+      <%  @recipe.reviews.each do |review| %>
+      <div class="well">
+        <strong>Chef:</strong> <%= review.chef.chefname %>
+      <br>
+        <%= review.review %>
+      </div>
+      <%end%>
+  </div>
+  <div class="col-md-8">
+  <h5><%= link_to "Return to Recipes Listing", recipes_path, class: "btn btn-warning btn-small"%>
+    <% if logged_in? %>
+  <%= link_to "Post a review", new_recipe_review_path(@recipe), class: "btn btn-success btn-small pull-right"%>
+  <%end%>
+  </h5>
   </div>
 </div>
-
-<h5><%= link_to "Return to Recipes Listing", recipes_path, class: "btn btn-warning btn-small"%></h5>

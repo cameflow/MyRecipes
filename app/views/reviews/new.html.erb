@@ -1,0 +1,15 @@
+<%= render 'shared/page_title', title: "Write a review" %>
+
+<%= render 'shared/errors', obj: @review %>
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+    <%= form_for([@recipe, @recipe.reviews.build]) do |f| %>
+      <%= f.label :review %>
+      <%= f.text_area :review, rows: 10 %>
+
+
+      <%= f.submit 'Post Review', class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
